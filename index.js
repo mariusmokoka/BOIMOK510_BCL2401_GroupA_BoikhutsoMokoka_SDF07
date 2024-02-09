@@ -19,20 +19,21 @@ addButtonEl.addEventListener("click", function() {
     push(shoppingListInDB, inputValue)
     
     clearInputFieldEl()
-
-    appendItemToShoppingListEl(inputValue)
 })
 
 onValue(shoppingListInDB, function(snapshot) {
     let itemsArray = Object.values(snapshot.val())
     
-    // Challenge: Write a for loop to iterate on itemsArray and console log each item
+    clearShoppingListEl()
+    
     for (let i = 0; i < itemsArray.length; i++) {
-        // Challenge: Use the appendItemToShoppingListEl(itemValue) function inside of the for loop to append item to the shopping list element for each iteration.
-        
         appendItemToShoppingListEl(itemsArray[i])
     }
 })
+
+function clearShoppingListEl() {
+    shoppingListEl.innerHTML = ""
+}
 
 function clearInputFieldEl() {
     inputFieldEl.value = ""
