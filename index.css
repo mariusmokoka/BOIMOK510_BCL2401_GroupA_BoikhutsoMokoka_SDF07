@@ -1,4 +1,4 @@
-body {
+html, body {
     margin: 0;
     padding: 0;
     font-family: 'Rubik', sans-serif;
@@ -24,10 +24,18 @@ input {
     padding: 15px;
     border-radius: 8px;
     font-size: 20px;
-    t
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    margin: 10px 0;
 }
 
 button {
     color: #FDFDFD;
     background-color: #AC485A;
+    border: 0;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
 }
