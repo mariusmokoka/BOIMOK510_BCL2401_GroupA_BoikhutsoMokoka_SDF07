@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const appSettings = {
     databaseURL: "https://realtimedatabase-c8167-default-rtdb.europe-west1.firebasedatabase.app/"
@@ -21,6 +21,17 @@ addButtonEl.addEventListener("click", function() {
     clearInputFieldEl()
 
     appendItemToShoppingListEl(inputValue)
+})
+
+onValue(shoppingListInDB, function(snapshot) {
+    let itemsArray = Object.values(snapshot.val())
+    
+    // Challenge: Write a for loop to iterate on itemsArray and console log each item
+    for (let i = 0; i < itemsArray.length; i++) {
+        // Challenge: Use the appendItemToShoppingListEl(itemValue) function inside of the for loop to append item to the shopping list element for each iteration.
+        
+        appendItemToShoppingListEl(itemsArray[i])
+    }
 })
 
 function clearInputFieldEl() {
